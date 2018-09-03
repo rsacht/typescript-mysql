@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rsacht/typescript-mysql/issues"
   },
-  "homepage": "https://github.com/rsacht/typescript-mysql#readme"
+  "homepage": "https://github.com/rsacht/typescript-mysql#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
