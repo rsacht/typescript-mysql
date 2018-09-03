@@ -18,5 +18,8 @@
   "homepage": "https://github.com/rsacht/typescript-mysql#readme",
   "dependencies": {
     "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0"
   }
 }
