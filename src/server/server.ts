@@ -1,16 +1,16 @@
 import express = require('express');
 
 export default class Server{
-    public app: express.Application;
-    public port: number;
 
-    constuctor(porta:number){
-        this.port = porta;
+    public app!: express.Application;
+    public port!: number;
+
+    constructor(puerto:number){
+        this.port = puerto;
         this.app = express();
     }
-
-    static init (porta: number){
-        return new Server(porta);
+    static init (puerto:number){
+        return new Server(puerto);
     }
 
     start(callback: Function){
