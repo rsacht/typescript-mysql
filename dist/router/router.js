@@ -28,10 +28,26 @@ router.get('/heroes', (req, res) => {
 });
 router.get('/heroes/:id', (req, res) => {
     const id = req.params.id;
-    res.json({
-        ok: true,
-        mensagem: 'Tudo está bem!',
-        id: id
+    //Escapando o id para evitar injeção de código
+    const escapedId = mysql_1.default.instance.conecta.escape(id);
+    const query = `
+    SELECT *
+    FROM heroes
+    where id = ${escapedId}`;
+    //Especifica os tipos para saber como funcionam as instruções
+    mysql_1.default.executarQuery(query, (err, heroe) => {
+        if (err) {
+            res.status(400).json({
+                ok: false,
+                error: err
+            });
+        }
+        else {
+            res.json({
+                ok: true,
+                heroe: heroe[0]
+            });
+        }
     });
 });
 exports.default = router;
