@@ -22,6 +22,12 @@ export default class MySQL{
         this.conectarDB();
     }
 
+    public static get instance(){
+        //Se a instância existe retorna a instância
+        //Se não cria uma nova instância igual à classe (Singleton)
+        return this._instance || (this._instance = new this());
+    }
+
     private conectarDB(){
         this.conecta.connect((err:mysql.MysqlError)=>{
             if(err){

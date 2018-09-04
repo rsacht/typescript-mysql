@@ -8,7 +8,7 @@ class MySQL {
         this.conecta = mysql.createConnection({
             host: 'localhost',
             user: 'node_user',
-            password: '1234567',
+            password: '123456',
             database: 'node_db'
         });
         this.conectarDB();

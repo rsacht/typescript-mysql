@@ -5,7 +5,7 @@ import MySQL from "./mysql/mysql";
 const server = Server.init(3000);
 server.app.use(router);
 
-const mysql = new MySQL();
+MySQL.instance;
 
 server.start(()=>{
     console.log('Start Server na porta: 3000. Acesse http://localhost:3000');
