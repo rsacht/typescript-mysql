@@ -8,4 +8,12 @@ router.get('/heroes', (req, res) => {
         mensagem: 'Tudo está bem!'
     });
 });
+router.get('/heroes/:id', (req, res) => {
+    const id = req.params.id;
+    res.json({
+        ok: true,
+        mensagem: 'Tudo está bem!',
+        id: id
+    });
+});
 exports.default = router;
