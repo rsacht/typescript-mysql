@@ -28,6 +28,25 @@ export default class MySQL{
         return this._instance || (this._instance = new this());
     }
 
+    static executarQuery(query: string, callback: Function){
+        this.instance.conecta.query(query, (err, results:Object[], fields)=>{
+            if(err){
+                console.log('Erro na query');
+                console.log(err);
+                return;
+            }
+
+            //Se a query tiver zero resulst gerará um array vazio
+            if(results.length === 0){
+                callback('Nenhum registro com este valor foi encontrado!')
+            }else{
+                //null = erros
+                callback(null, results);
+            }
+            
+        });
+    }
+
     private conectarDB(){
         this.conecta.connect((err:mysql.MysqlError)=>{
             if(err){
